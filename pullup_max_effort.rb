@@ -20,7 +20,7 @@ completed = []
   rest 90 if n.nonzero?
 
   perform "as many pull-ups as you can"
-  completed << ask("How many did you complete?")
+  completed << ask("How many did you complete?").to_i
 end
 
 puts completed.join(', ')

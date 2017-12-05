@@ -29,7 +29,7 @@ grips.each_with_index do |grip, set|
   rest 60 if set.nonzero?
 
   perform grip, training_reps
-  completed << ask("How many did you complete?", default: training_reps)
+  completed << ask("How many did you complete?", default: training_reps).to_i
 end
 
 puts completed.join(', ')

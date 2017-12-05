@@ -21,13 +21,13 @@ ready?
 (1..Float::INFINITY).each do |reps|
   if last_set
     perform "as many pull-ups as you can"
-    sets << ask("How many did you complete?")
+    sets << ask("How many did you complete?").to_i
     puts sets.join(', ')
     exit
   end
 
   perform "pull-up", reps
-  completed = ask("How many did you complete?", default: reps)
+  completed = ask("How many did you complete?", default: reps).to_i
   sets << completed
 
   last_set = true if completed != reps

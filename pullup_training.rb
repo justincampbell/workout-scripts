@@ -23,7 +23,7 @@ ready?
 
 loop do
   perform "pull-up", training_reps
-  completed = ask("How many did you complete?", default: training_reps)
+  completed = ask("How many did you complete?", default: training_reps).to_i
   sets << completed
 
   if completed != training_reps
