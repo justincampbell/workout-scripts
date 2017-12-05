@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby -w
+
+# Armstrong Pullup Program
+# http://armstrongpullupprogram.com
+#
+# Day 4: Training
+#
+# Do the maximum number of training sets that you can accomplish. Rest 60
+# seconds between each set. You do training sets until you fail to do perfect
+# training set. This day can wind up being the longest training day as you
+# continue with the program because you will find it easy to do lots of
+# training sets.
+
+require_relative 'helpers'
+
+training_reps = ARGV[0].to_i
+raise "Must pass a training set rep count" if training_reps.zero?
+puts "#{training_reps} training #{pluralize(training_reps, "rep")}"
+
+sets = []
+
+ready?
+
+loop do
+  perform "pull-up", training_reps
+  completed = ask("How many did you complete?", default: training_reps)
+  sets << completed
+
+  if completed != training_reps
+    puts sets.join(', ')
+    exit
+  end
+
+  rest 60
+end

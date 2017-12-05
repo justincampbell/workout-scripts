@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby -w
+
+# Armstrong Pullup Program
+# http://armstrongpullupprogram.com
+#
+# Day 1: Max Effort
+#
+# Five maximum effort sets. Rest 90 seconds between each set. Do not concern
+# yourself with numbers. You will find that you will increase the numbers in
+# the last two sets before you see much improvement in the first three. Make
+# sure that each set is a maximum effort set.
+
+require_relative 'helpers'
+
+ready?
+
+completed = []
+
+5.times do |n|
+  rest 90 if n.nonzero?
+
+  perform "as many pull-ups as you can"
+  completed << ask("How many did you complete?")
+end
+
+puts completed.join(', ')

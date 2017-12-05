@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby -w
+
 # Armstrong Pullup Program
 # http://armstrongpullupprogram.com
 #
@@ -9,22 +11,26 @@
 # You missed a set) Do one more set at a maximum effort. Rest 10 seconds for
 # each repetition in the previous set.
 
-def say(phrase)
-  Thread.new { `say #{phrase.inspect}` }
-end
+require_relative 'helpers'
 
-puts "Press enter to begin"
-gets
+sets = []
+last_set = false
+
+ready?
 
 (1..Float::INFINITY).each do |reps|
-  say reps
-  puts "Perform #{reps} #{reps == 1 ? "pull-up" : "pull-ups"}"
-  puts "Press enter when done"
-  gets
+  if last_set
+    perform "as many pull-ups as you can"
+    sets << ask("How many did you complete?")
+    puts sets.join(', ')
+    exit
+  end
 
-  seconds = reps * 10
-  puts "Rest for #{seconds} seconds"
-  sleep seconds
+  perform "pull-up", reps
+  completed = ask("How many did you complete?", default: reps)
+  sets << completed
 
-  puts
+  last_set = true if completed != reps
+
+  rest 10 * reps
 end

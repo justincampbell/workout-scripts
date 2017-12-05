@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby -w
+
+# Armstrong Pullup Program
+# http://armstrongpullupprogram.com
+#
+# Day 3: Grip Switch
+#
+# Do three training sets with a normal overhand grip. Rest 60 seconds between
+# each set. Do three training sets gripping the bar so that your palms are
+# toward your face and your little fingers are touching each other. Do three
+# training sets with wide grip. Rest 60 seconds between each set.
+
+require_relative 'helpers'
+
+training_reps = ARGV[0].to_i
+raise "Must pass a training set rep count" if training_reps.zero?
+puts "#{training_reps} training #{pluralize(training_reps, "rep")}"
+
+ready?
+
+completed = []
+grips = [
+  ["pull-up"] * 3,
+  ["close-grip chin-up"] * 3,
+  ["wide-grip pull-up"] * 3
+].flatten
+
+grips.each_with_index do |grip, set|
+  rest 60 if set.nonzero?
+
+  perform grip, training_reps
+  completed << ask("How many did you complete?", default: training_reps)
+end
+
+puts completed.join(', ')
