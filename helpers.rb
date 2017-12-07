@@ -9,6 +9,18 @@ def ask(question, default: nil)
   result
 end
 
+def group_sets(sets)
+  counts = sets.group_by(&:itself).transform_values(&:count)
+  strings = counts.map { |completed_reps, completed_sets|
+    if completed_sets == 1
+      completed_reps
+    else
+      "#{completed_reps} x #{completed_sets}"
+    end
+  }
+  strings.join(', ')
+end
+
 def perform(movement, reps = nil)
   if reps
     pluralized = pluralize(reps, movement)

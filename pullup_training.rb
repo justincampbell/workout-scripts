@@ -27,7 +27,7 @@ loop do
   sets << completed
 
   if completed != training_reps
-    puts sets.join(', ')
+    puts group_sets(sets)
     exit
   end
 
