@@ -11,7 +11,7 @@
 # You missed a set) Do one more set at a maximum effort. Rest 10 seconds for
 # each repetition in the previous set.
 
-require_relative 'helpers'
+require_relative '../helpers'
 
 sets = []
 last_set = false

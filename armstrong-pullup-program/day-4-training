@@ -11,7 +11,7 @@
 # continue with the program because you will find it easy to do lots of
 # training sets.
 
-require_relative 'helpers'
+require_relative '../helpers'
 
 training_reps = ARGV[0].to_i
 raise "Must pass a training set rep count" if training_reps.zero?

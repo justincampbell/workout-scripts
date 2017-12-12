@@ -10,7 +10,7 @@
 # toward your face and your little fingers are touching each other. Do three
 # training sets with wide grip. Rest 60 seconds between each set.
 
-require_relative 'helpers'
+require_relative '../helpers'
 
 training_reps = ARGV[0].to_i
 raise "Must pass a training set rep count" if training_reps.zero?

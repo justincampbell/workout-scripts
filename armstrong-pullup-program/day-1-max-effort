@@ -10,7 +10,7 @@
 # the last two sets before you see much improvement in the first three. Make
 # sure that each set is a maximum effort set.
 
-require_relative 'helpers'
+require_relative '../helpers'
 
 ready?
 
