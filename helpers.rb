@@ -22,6 +22,8 @@ def group_sets(sets)
 end
 
 def perform(movement, reps = nil)
+  print "Set #{set_counter.next}: "
+
   if reps
     pluralized = pluralize(reps, movement)
     say "#{reps} #{pluralized}"
@@ -66,4 +68,8 @@ end
 
 def say(phrase)
   Thread.new { `say -v Samantha #{phrase.inspect}` }
+end
+
+def set_counter
+  @set_counter ||= (1..Float::INFINITY).enum_for
 end
