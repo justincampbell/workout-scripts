@@ -45,12 +45,14 @@ def press_enter(suffix = "when done")
   STDIN.gets
 end
 
-def ready?
+def ready?(countdown: nil)
   press_enter "to begin"
+
+  rest countdown, prefix: "Begin in" if countdown
 end
 
-def rest(seconds)
-  puts "Rest for #{seconds} seconds"
+def rest(seconds, prefix: "Rest for")
+  puts "#{prefix} #{seconds} seconds"
 
   (1..seconds).to_a.reverse.each do |remaining|
     unless remaining == seconds

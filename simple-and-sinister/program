@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby -w
+
+# Simple and Sinister
+# https://www.strongfirst.com/achieve/sinister/
+#
+# This program involves 100 one-hand swings and 10 get-ups. The 10×10 swings
+# must be completed in 5 minutes, followed by 1 minute of rest and 10×1 get-ups
+# performed in 10 minutes.
+
+require_relative '../helpers'
+
+ready? countdown: 10
+
+10.times do |n|
+  perform "10 swings"
+  rest 30
+end
+
+say "Rest"
+rest 60
+
+10.times do |n|
+  perform "Turkish get-up"
+  rest 60
+end
