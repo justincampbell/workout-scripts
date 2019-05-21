@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby -w
+
+# Armstrong Pullup Program
+# http://armstrongpullupprogram.com
+#
+# Morning Routine
+#
+# Each morning perform three maximum effort sets of normal pushups. The pushup
+# is one of the best, single exercises for strengthening the entire set of
+# muscles that makes up the shoulder girdle. Major Armstrong described his
+# morning routine in the following manner. “After rising, I would drop onto the
+# deck and do my first set of pushups. I would then move into the head
+# (bathroom) and start my morning toilet. I would return after a few minutes
+# and do my second maximum effort set after which, I would go back into the
+# head to shave. After shaving, I would return to the bedroom and complete the
+# third and final set. Having completed all of the pushups, I was awake and
+# ready for a relaxing shower. “ This routine should be followed during the
+# entire training period. Since it takes most of us at least four weeks to
+# reach our goals, you will probably find that you have inadvertently
+# established a morning routine that is easy enough to keep as a lifetime
+# habit, if not, you will at least appreciate the morning shower a little more.
+# It has been noted that this pushup routine helps to alleviate any soreness
+# during the first couple of weeks. It is recommended that you use the pushup
+# routine everyday during this period so that you feel more comfortable during
+# your initial adjustment to this regime of exercises.
+
+require_relative '../helpers'
+
+ready?
+
+completed = []
+
+3.times do |n|
+  rest 10.minutes if n.nonzero?
+
+  perform "as many push-ups as you can"
+  completed << ask("How many did you complete?").to_i
+end
+
+puts completed.join(', ')
