@@ -11,6 +11,10 @@ class Numeric
   alias :minute :minutes
 end
 
+def alternating_side
+  (@side ||= %w[left right].cycle).next
+end
+
 def ask(question, default: nil)
   print "#{question} "
   print "(#{default}) " if default

@@ -12,7 +12,7 @@ require_relative '../helpers'
 ready? countdown: 10
 
 10.times do |n|
-  perform "10 swings"
+  perform "10 #{alternating_side}-handed swings"
   rest 30.seconds
 end
 
@@ -20,6 +20,6 @@ say "Rest"
 rest 1.minute
 
 10.times do |n|
-  perform "Turkish get-up"
+  perform "#{alternating_side} Turkish get-up"
   rest 1.minute
 end
