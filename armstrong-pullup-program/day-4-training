@@ -31,5 +31,5 @@ loop do
     exit
   end
 
-  rest 60
+  rest 1.minute
 end

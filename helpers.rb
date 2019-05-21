@@ -1,3 +1,16 @@
+require 'optparse'
+
+class Numeric
+  def seconds
+    self
+  end
+
+  def minutes
+    self * 60
+  end
+  alias :minute :minutes
+end
+
 def ask(question, default: nil)
   print "#{question} "
   print "(#{default}) " if default
@@ -52,13 +65,18 @@ def ready?(countdown: nil)
 end
 
 def rest(seconds, prefix: "Rest for")
-  puts "#{prefix} #{seconds} seconds"
+  if seconds % 60 == 0
+    puts "#{prefix} #{seconds / 60} minutes"
+  else
+    puts "#{prefix} #{seconds} seconds"
+  end
 
   (1..seconds).to_a.reverse.each do |remaining|
     unless remaining == seconds
       case remaining
-      when 60 then say "1 minute"
-      when 10, 30 then say "#{remaining} seconds"
+      when 5.minutes then say "5 minutes"
+      when 1.minute then say "1 minute"
+      when 10.seconds, 30.seconds then say "#{remaining} seconds"
       end
     end
 

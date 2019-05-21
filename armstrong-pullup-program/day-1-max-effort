@@ -17,7 +17,7 @@ ready?
 completed = []
 
 5.times do |n|
-  rest 90 if n.nonzero?
+  rest 90.seconds if n.nonzero?
 
   perform "as many pull-ups as you can"
   completed << ask("How many did you complete?").to_i

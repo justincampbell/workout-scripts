@@ -13,13 +13,13 @@ ready? countdown: 10
 
 10.times do |n|
   perform "10 swings"
-  rest 30
+  rest 30.seconds
 end
 
 say "Rest"
-rest 60
+rest 1.minute
 
 10.times do |n|
   perform "Turkish get-up"
-  rest 60
+  rest 1.minute
 end
