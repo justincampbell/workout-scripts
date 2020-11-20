@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby -w
+
+# The Quick and the Dead
+
+require_relative '../helpers'
+
+D6 = (1..6).to_a
+
+def roll
+  D6.sample
+end
+
+first = roll
+puts first
+
+second = roll
+puts second
+
+third = roll
+puts third

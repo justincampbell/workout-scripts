@@ -14,7 +14,7 @@ require_relative '../helpers'
 
 training_reps = ARGV[0].to_i
 raise "Must pass a training set rep count" if training_reps.zero?
-puts "#{training_reps} training #{pluralize(training_reps, "rep")}"
+puts pluralize(training_reps, "training rep")
 
 ready?
 

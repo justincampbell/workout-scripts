@@ -43,8 +43,8 @@ def perform(movement, reps = nil)
 
   if reps
     pluralized = pluralize(reps, movement)
-    say "#{reps} #{pluralized}"
-    puts "Perform #{reps} #{pluralized}"
+    say pluralized
+    puts "Perform #{pluralized}"
   else
     say "#{movement}"
     puts "Perform #{movement}"
@@ -52,9 +52,7 @@ def perform(movement, reps = nil)
 end
 
 def pluralize(count, word)
-  return word if count == 1
-
-  "#{word}s"
+  "#{count} #{word}#{"s" unless count == 1}"
 end
 
 def press_enter(suffix = "when done")
@@ -70,9 +68,10 @@ end
 
 def rest(seconds, prefix: "Rest for")
   if seconds % 60 == 0
-    puts "#{prefix} #{seconds / 60} minutes"
+    minutes = seconds / 60
+    puts "#{prefix} #{pluralize(minutes, "minute")}"
   else
-    puts "#{prefix} #{seconds} seconds"
+    puts "#{prefix} #{pluralize(seconds, "second")}"
   end
 
   (1..seconds).to_a.reverse.each do |remaining|
